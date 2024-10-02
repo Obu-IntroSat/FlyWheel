@@ -1,0 +1,3 @@
+[submodule "IntroSatLib"]
+	path = IntroSatLib
+	url = https://github.com/Obu-IntroSat/IntroSatLib
