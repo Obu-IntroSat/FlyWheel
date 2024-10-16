@@ -24,6 +24,8 @@
 #include "usart.h"
 #include "gpio.h"
 
+#include "interfaces/GPIO.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -69,6 +71,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	GPIO_TypeDef t = {};
+	is::interfaces::GPIO pin(t, 0);
 
   /* USER CODE END 1 */
 
@@ -105,6 +109,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  pin.lock();
+	  pin.set(pin.get().value_or(is::interfaces::GPIOPinState::RESET));
+	  	pin.togle();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
